@@ -60,7 +60,7 @@ public class App {
 
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
                 Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT id, name, email FROM users")) {
+                ResultSet rs = stmt.executeQuery("SELECT id, name, mssv FROM users")) {
 
             boolean first = true;
             while (rs.next()) {
@@ -69,7 +69,7 @@ public class App {
                 json.append("{")
                         .append("\"id\":").append(rs.getInt("id")).append(",")
                         .append("\"name\":\"").append(rs.getString("name")).append("\",")
-                        .append("\"email\":\"").append(rs.getString("email")).append("\"")
+                        .append("\"mssv\":\"").append(rs.getString("mssv")).append("\"")
                         .append("}");
                 first = false;
             }
